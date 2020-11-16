@@ -11,7 +11,7 @@ spring:
 
 logging:
   level:
-    root: debug
+    root: info
     com.ylqi007: debug
   file:
     path: log/blog-dev.log
