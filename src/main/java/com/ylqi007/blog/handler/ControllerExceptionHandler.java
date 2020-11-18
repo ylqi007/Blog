@@ -10,12 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-@ControllerAdvice
+@ControllerAdvice       // 拦截所有带有 @Controller 注解的控制器
 public class ControllerExceptionHandler {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass()); // 记录日志
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(Exception.class)  // 可做异常处理
     public ModelAndView exceptionHandler(HttpServletRequest request, Exception e) throws Exception{
         logger.error("Request URL: {}. Exception: {}", request.getRequestURL(), e);
 
@@ -25,7 +25,7 @@ public class ControllerExceptionHandler {
         ModelAndView mv = new ModelAndView();
         mv.addObject("url", request.getRequestURL());
         mv.addObject("exception", e);
-        mv.setViewName("error/error");
+        mv.setViewName("error/error");  // 返回到哪个页面
         return mv;
     }
 }

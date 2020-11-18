@@ -10,12 +10,12 @@ public class IndexController {
 
     @GetMapping("/{id}/{name}")
     public String index(@PathVariable Integer id, @PathVariable String name) {
-//        int i = 9 / 0;
-//        String blog = null;
-//        if (blog == null) {
-//            throw new NotFoundException("Blog Not Found.");
+//        int i = 9 / 0;    // for handle error
+//        String blog = null; // for handl exception
+//        if(blog == null) {
+//            throw new NotFoundException("Blog Not Found!");
 //        }
-        System.out.println(" ======== IndexController.index() ==========");
+        System.out.println(" === IndexController.index() ===");
         return "index";
     }
 }

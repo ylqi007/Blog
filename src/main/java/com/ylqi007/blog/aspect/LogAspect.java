@@ -11,11 +11,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
-@Aspect
-@Component
+@Aspect     // 进行切面处理
+@Component  // 才能在组建扫面的时候被扫描到
 public class LogAspect {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Pointcut("execution(* com.ylqi007.blog.web.*.*(..))")
     public void log() {}
 
