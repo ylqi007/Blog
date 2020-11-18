@@ -446,7 +446,9 @@ public class LogAspect {
 **1、静态页面导入project**
 
 **2、thymeleaf布局**
-
+    
+* [Thymeleaf](https://www.thymeleaf.org/index.html)    
+* [Template Layout](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#template-layout)
 *  定义fragment
 *  使用fragment布局
 
@@ -683,3 +685,21 @@ public class LogAspect {
 ### [6. About Page](about.html)
 
 
+## FAQ
+1. 什么是 classpath ？ [classpath和jar](https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296#:~:text=classpath%20%E6%98%AFJVM%E7%94%A8%E5%88%B0,%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E3%80%82)
+    * `classpath` 是 JVM 用到的一个环境变量，它用来至少 JVM 如何搜索 `class`。
+    * 因为 Java 是编译型语言，源码文件是 `.java`，而编译后的 `.class` 文件才是真正可以被 JVM 执行的字节码。因此，
+    JVM 需要知道，如果要加载一个 `abc.xyz.Hello` 的类，应该去哪里搜索对应的 `Hello.class` 文件。
+    * 所以，`classpath` 就是一组目录的组合，它设置的搜索路径与操作系统相关。
+    * `classpath` 的设定方法有两种：
+        * 在系统环境中设置 `classpath` 环境变量，不推荐，因为会污染整个系统环境变量。
+        * 在启动 JVM 时，设置 `classpath` 变量，推荐。 
+2. 什么是 jar ？ [classpath和jar](https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296#:~:text=classpath%20%E6%98%AFJVM%E7%94%A8%E5%88%B0,%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E3%80%82)
+    * 如果有很多.class文件，散落在各层目录中，肯定不便于管理。如果能把目录打一个包，变成一个文件，就方便多了。
+    * jar包就是用来干这个事的，它可以把package组织的目录层级，以及各个目录下的所有文件（包括.class文件和其他文件）都打成一个jar文件，这样一来，无论是备份，还是发给客户，就简单多了。
+    * jar包实际上就是一个zip格式的压缩文件，而jar包相当于目录。
+3. [Why does Favicon.ico Show Up as a 404 in the log files?](http://www.webweaver.nu/html-tips/favicon.shtml)
+4. [Why am I seeing a 404 (Not Found) error failed to load favicon.ico when not using this?](https://stackoverflow.com/questions/39149846/why-am-i-seeing-a-404-not-found-error-failed-to-load-favicon-ico-when-not-usin)
+5. Error Page always shows a dot in static browser mode.    
+    
+* `Attribute th:replace is not allowed here.`

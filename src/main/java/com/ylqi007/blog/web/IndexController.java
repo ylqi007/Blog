@@ -8,14 +8,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class IndexController {
 
-    @GetMapping("/{id}/{name}")
-    public String index(@PathVariable Integer id, @PathVariable String name) {
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    @GetMapping("/blog")
+    public String Blog() {
+        return "blog";
+    }
+
+
+//    @GetMapping("/{id}/{name}")
+//    public String index(@PathVariable Integer id, @PathVariable String name) {
 //        int i = 9 / 0;    // for handle error
 //        String blog = null; // for handl exception
 //        if(blog == null) {
 //            throw new NotFoundException("Blog Not Found!");
 //        }
-        System.out.println(" === IndexController.index() ===");
-        return "index";
-    }
+//        System.out.println(" === IndexController.index() ===");
+//        return "index";
+//    }
 }

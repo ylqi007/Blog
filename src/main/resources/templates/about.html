@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+    <title>关于我</title>
+</head>
+
+<body>
+
+<!--    navigation-->
+    <nav class="ui inverted attached segment me-padding-tb-mini me-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Blog</h2>
+                <a href="#" class="m-item item me-mobile-hide"><i class="home icon"></i>Index</a>
+                <a href="#" class="m-item item me-mobile-hide"><i class="idea icon"></i>Class</a>
+                <a href="#" class="m-item item me-mobile-hide"><i class="tags icon"></i>Tag</a>
+                <a href="#" class="m-item item me-mobile-hide"><i class="clone icon"></i>Archive</a>
+                <a href="#" class="active m-item item me-mobile-hide"><i class="info icon"></i>About Me</a>
+                <div class="right m-item item me-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="ui menu toggle black icon button me-top-right me-mobile-show">
+            <i class="icon sidebar icon"></i>
+        </a>
+    </nav>
+
+<!--    content-->
+    <div class="me-container me-padding-tb-big">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <div class="eleven wide column">
+                    <div class="ui segment">
+                        <img src="https://unsplash.it/id/1005/800/600" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                
+                <div class="five wide column">
+<!--                    About me, header-->
+                    <div class="ui top attached segment">
+                        <div class="ui header">About Me</div>
+                    </div>
+<!--                    About me, info-->
+                    <div class="ui attached segment">
+                        <p class="me-text">一个独立的开发者，一个终身学习者，积累与博发</p>
+                        <p class="me-text">一个独立的开发者，一个终身学习者，积累与博发</p>
+                    </div>
+<!--                    About me, types-->
+                    <div class="ui attached segment">
+                        <div class="ui orange basic label">编程</div>
+                        <div class="ui orange basic label">写作</div>
+                        <div class="ui orange basic label">思考</div>
+                        <div class="ui orange basic label">运动</div>
+                    </div>
+<!--                    About me, tech-->
+                    <div class="ui attached segment">
+                        <div class="ui teal basic label me-margin-tb-tiny">Java</div>
+                        <div class="ui teal basic label me-margin-tb-tiny">JavaScript</div>
+                        <div class="ui teal basic label me-margin-tb-tiny">Node</div>
+                        <div class="ui teal basic label me-margin-tb-tiny">React</div>
+                    </div>
+<!--                    About me, links-->
+                    <div class="ui bottom attached segment">
+                        <a href="#" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="#" class="ui qq circular icon button" data-content="123456789" data-position="bottom center"><i class="qq icon"></i></a>
+                    </div>
+
+<!--                    popup image for wechat-->
+                    <div class="ui WeChatQR flowing popup transition hidden" >
+                        <img src="../static/images/QR_Code.png" alt="" class="ui rounded bordered image" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    footer-->
+    <footer class="ui inverted vertical segment me-padding-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+<!--                        <img src="./static/images/QR_Code.png" alt="" class="ui rounded image" style="width: 120px">-->
+                        <div class="item">
+                            <img src="../static/images/QR_Code.png" alt="" class="ui rounded image" style="width: 120px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header me-text-thin me-text-spaced">The Newest Blogs</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Name1</a>
+                        <a href="#" class="item">Name2</a>
+                        <a href="#" class="item">Name3</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header me-text-thin me-text-spaced">The Newest Blogs</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Name1</a>
+                        <a href="#" class="item">Name2</a>
+                        <a href="#" class="item">Name3</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header me-text-thin me-text-spaced">Header Name</h4>
+                    <p class="me-text-thin me-text-spaced me-opacity-mini">这是我个人的博客，会分享关于编程、写作、思考相关的任何内容，希望对给来到这里的人有所帮助。</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="me-text-thin me-text-spaced me-opacity-tiny">Copyright © 2020, Qi</p>
+        </div>
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+<script>
+    // Response to click button, display and show menu bar in navigator
+    $('.menu.toggle').click(function() {
+        $('.m-item').toggleClass('me-mobile-hide');
+    });
+
+    // Click to toggle Pay Code
+    $('.wechat').popup({
+        popup: $('.WeChatQR'),
+        on: 'hover',
+        position: 'bottom center'
+    });
+
+    // Popup QQ number
+    $('.qq').popup();
+</script>
+</body>
+</html>

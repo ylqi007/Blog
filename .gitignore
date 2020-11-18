@@ -34,7 +34,6 @@ build/
 
 # Maven
 log/
-target/
 .mvn/
 mvnw.cmd
 mvnw
