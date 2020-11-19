@@ -441,8 +441,6 @@ public class LogAspect {
 
 ### 3.4 页面处理
 
-
-
 **1、静态页面导入project**
 
 **2、thymeleaf布局**
@@ -454,7 +452,9 @@ public class LogAspect {
 
 **3、错误页面美化**
 
-4、设计与规范
+
+
+## 4、设计与规范
 
 ### 4.1 实体设计
 
@@ -470,39 +470,54 @@ public class LogAspect {
 
 **实体关系：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/87092095.jpg)
+![image-20201118203333230](/home/yq0033/.config/Typora/typora-user-images/image-20201118203333230.png)
+
+* One **blog** can only belong to one **type**; but one **type** can have lots of **blogs**, i.e. a type has a list of blogs;
+* Blog -- Tag, 多对多
+
+
 
 **评论类自关联关系：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/41296045.jpg)
+![image-20201118203624546](/home/yq0033/.config/Typora/typora-user-images/image-20201118203624546.png)
+
+
 
 **Blog类：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/38390041.jpg)
+![image-20201118203808452](/home/yq0033/.config/Typora/typora-user-images/image-20201118203808452.png)
+
+
 
 **Type类：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/22984471.jpg)
+![image-20201118204027974](/home/yq0033/.config/Typora/typora-user-images/image-20201118204027974.png)
+
+
 
 **Tag类：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/70860077.jpg)
+![image-20201118204104911](/home/yq0033/.config/Typora/typora-user-images/image-20201118204104911.png)
+
+
 
 **Comment类：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/77104424.jpg)
+![image-20201118204135825](/home/yq0033/.config/Typora/typora-user-images/image-20201118204135825.png)
 
 
 
 **User类：**
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/10367795.jpg)
+![image-20201118204203435](/home/yq0033/.config/Typora/typora-user-images/image-20201118204203435.png)
 
 
 
 ### 4.2 应用分层
 
-![](http://on91wk3hn.bkt.clouddn.com/17-10-14/64528736.jpg)
+![image-20201118204240017](/home/yq0033/.config/Typora/typora-user-images/image-20201118204240017.png)
+
+
 
 ### 4.3 命名约定
 
@@ -517,8 +532,9 @@ public class LogAspect {
 
 
 
+![image-20201118222039201](/home/yq0033/.config/Typora/typora-user-images/image-20201118222039201.png)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
+
 
 ## 5、后台管理功能实现
 
@@ -701,5 +717,5 @@ public class LogAspect {
 3. [Why does Favicon.ico Show Up as a 404 in the log files?](http://www.webweaver.nu/html-tips/favicon.shtml)
 4. [Why am I seeing a 404 (Not Found) error failed to load favicon.ico when not using this?](https://stackoverflow.com/questions/39149846/why-am-i-seeing-a-404-not-found-error-failed-to-load-favicon-ico-when-not-usin)
 5. Error Page always shows a dot in static browser mode.    
-    
+   
 * `Attribute th:replace is not allowed here.`
