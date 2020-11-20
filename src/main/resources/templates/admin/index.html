@@ -13,7 +13,7 @@
 <body>
 
 <!--    navigation-->
-<nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment me-padding-tb-mini me-shadow-small">
+<nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment me-padding-tb-mini me-shadow-small">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">后台管理</h2>
@@ -28,7 +28,7 @@
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                        <a href="#" class="item">注销</a>
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
                     </div>
                 </div>
             </div>
@@ -39,6 +39,7 @@
         <i class="icon sidebar icon"></i>
     </a>
 </nav>
+
 <div class="ui attached pointing menu">
     <div class="ui container">
         <div class="right menu">
@@ -51,81 +52,17 @@
 <!--    content-->
 <div class="me-container-small me-padding-tb-big">
     <div class="ui container">
-        <!--            form-->
-        <form action="#" method="post" class="ui segment form">
-            <div class="inline fields">
-                <div class="field">
-                    <input type="text" name="title" placeholder="Title">
-                </div>
-                <div class="field">
-                    <div class="ui selection dropdown">
-                        <input type="hidden" name="type">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">分类</div>
-                        <div class="menu">
-                            <div class="item" data-value="1">错误日志</div>
-                            <div class="item" data-value="2">开发日志</div>
-                            <div class="item" data-value="3">开发手册</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui checkbox">
-                        <input type="checkbox" id="recommend" name="recommend">
-                        <label for="recommend">推荐</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <button class="ui mini teal basic button">
-                        <i class="search icon"></i>
-                        Search
-                    </button>
-                </div>
-            </div>
-        </form>
+        <div class="ui success large message">
+            <h2>Hi, ylqi007</h2>
+            <p>Welcome.</p>
+        </div>
 
-        <!--            table-->
-        <table class="ui celled table">
-            <thead>
-            <tr>
-                <th></th>
-                <th>标题</th>
-                <th>类型</th>
-                <th>推荐</th>
-                <th>更新时间</th>
-                <th>操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>刻意练习</td>
-                <td>认知升级</td>
-                <td>是</td>
-                <td>2020-10-3 12：41</td>
-                <td>
-                    <a href="#" class="ui mini teal basic button">Edit</a>
-                    <a href="#" class="ui mini red basic button">Delete</a>
-                </td>
-            </tr>
-            </tbody>
-            <tfoot>
-            <tr>
-                <th colspan="6">
-                    <div class="ui mini floated pagination menu">
-                        <a href="#" class="item">上一页</a>
-                        <a href="#" class="item">下一页</a>
-                    </div>
-                    <a href="#" class="ui mini right floated teal basic button">New</a>
-                </th>
-            </tr>
-            </tfoot>
-        </table>
+        <img src="https://unsplash.it/id/0/800/600" alt="" class="ui rounded bordered fluid image">
     </div>
 </div>
 
 <!--    footer-->
-<footer th:replace="admin/_fragments :: footer"  class="ui inverted vertical segment me-padding-tb-massive">
+<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment me-padding-tb-massive">
     <div class="ui center aligned container">
         <div class="ui inverted divided stackable grid">
             <div class="three wide column">

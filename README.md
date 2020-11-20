@@ -453,7 +453,6 @@ public class LogAspect {
 **3、错误页面美化**
 
 
-
 ## 4、设计与规范
 
 ### 4.1 实体设计
@@ -700,6 +699,28 @@ public class LogAspect {
 
 ### [6. About Page](about.html)
 
+
+## Spring Boot 笔记
+1. 启动一个 Spring Boot 项目都会用到如下启动类：
+```java
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+* Annotation 定义：`@SpringBootApplication`
+* 类定义：`SpringApplication.run`
+
+
+### Reference
+* [Springboot启动原理解析（@SpringBootApplication和SpringApplication）](https://blog.csdn.net/qq_36761831/article/details/102928632)
+* [SpringBoot启动过程原理一](https://blog.csdn.net/u010811939/article/details/80592461?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-4.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-4.not_use_machine_learn_pai)
+* [SpringBoot启动原理及相关流程](https://blog.csdn.net/javarrr/article/details/89472495?utm_medium=distribute.pc_relevant.none-task-blog-baidulandingword-3&spm=1001.2101.3001.4242)
+* []()
+* []()
+* []()
 
 ## FAQ
 1. 什么是 classpath ？ [classpath和jar](https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296#:~:text=classpath%20%E6%98%AFJVM%E7%94%A8%E5%88%B0,%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E3%80%82)
