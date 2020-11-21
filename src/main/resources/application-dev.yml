@@ -13,6 +13,6 @@ logging:
   level:
     root: info
     com.ylqi007: debug
+    web: DEBUG
   file:
     path: log/blog-dev.log
-

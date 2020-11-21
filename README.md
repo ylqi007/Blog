@@ -101,8 +101,9 @@ Blog
 
 ### 1.2 功能规划
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fk7m27hbn4j31ds0ycdnp.jpg)
-![](images/blog_design.png)
+![blog_design](/home/ylqi007/work/IdeaProjects/blog/images/blog_design.png)
+
+
 
 ## 2、页面设计与开发
 
@@ -115,7 +116,6 @@ Blog
 后台管理：模板页
 
 ### 2.2 页面开发
-
 
 [Semantic UI官网](https://semantic-ui.com/)
 
@@ -159,6 +159,8 @@ Blog
 
 [二维码生成 qrcode.js](https://davidshimjs.github.io/qrcodejs/)
 
+
+
 ## 3、框架搭建
 
 >  [IDEA下载 https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/)
@@ -180,99 +182,101 @@ Blog
 
   pom.xml:
 
-```xml
-<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
-<thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
-```
+    ```xml
+    <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+    <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+    ```
+  * [Maven Repository -- Thymeleaf Spring3](https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring3/3.0.11.RELEASE)
 
+  application.yml:
 
-  	application.yml:
+    ```yaml
+    ```yaml
+    spring:
+      thymeleaf:
+        mode: HTML
+    ```
 
-```yaml
-spring:
-  thymeleaf:
-    mode: HTML
-```
 
 *  数据库连接配置
 
-```yaml
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: root
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-```
+    ```yaml
+    spring:
+      datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: root
+      jpa:
+        hibernate:
+          ddl-auto: update
+        show-sql: true
+    ```
 
 * 日志配置
 
   application.yml:
 
-```yaml
-logging:
-  level:
-    root: info
-    com.imcoding: debug
-  file: log/imcoding.log
-```
+    ```yaml
+    logging:
+      level:
+        root: info
+        com.imcoding: debug
+      file: log/imcoding.log
+    ```
 
-​	logback-spring.xml：
+  logback-spring.xml：
 
-```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<configuration>
-    <!--包含Spring boot对logback日志的默认配置-->
-    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
-    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    ```xml
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <configuration>
+        <!--包含Spring boot对logback日志的默认配置-->
+        <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+        <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+        <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 
-    <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
-    <appender name="TIME_FILE"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <file>${LOG_FILE}</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
-            <!--保留历史日志一个月的时间-->
-            <maxHistory>30</maxHistory>
-            <!--
-            Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
-            -->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+        <!--重写了Spring Boot框架 org/springframework/boot/logging/logback/file-appender.xml 配置-->
+        <appender name="TIME_FILE"
+                  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <encoder>
+                <pattern>${FILE_LOG_PATTERN}</pattern>
+            </encoder>
+            <file>${LOG_FILE}</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
+                <!--保留历史日志一个月的时间-->
+                <maxHistory>30</maxHistory>
+                <!--
+                Spring Boot默认情况下，日志文件10M时，会切分日志文件,这样设置日志文件会在100M时切分日志
+                -->
+                <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <maxFileSize>10MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
 
-        </rollingPolicy>
-    </appender>
+            </rollingPolicy>
+        </appender>
 
-    <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="TIME_FILE" />
-    </root>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="TIME_FILE" />
+        </root>
 
-</configuration>
-<!--
-    1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
-    2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
+    </configuration>
+    <!--
+        1、继承Spring boot logback设置（可以在appliaction.yml或者application.properties设置logging.*属性）
+        2、重写了默认配置，设置日志文件大小在100MB时，按日期切分日志，切分后目录：
 
-        my.2017-08-01.0   80MB
-        my.2017-08-01.1   10MB
-        my.2017-08-02.0   56MB
-        my.2017-08-03.0   53MB
-        ......
--->
-```
+            my.2017-08-01.0   80MB
+            my.2017-08-01.1   10MB
+            my.2017-08-02.0   56MB
+            my.2017-08-03.0   53MB
+            ......
+    -->
+    ```
 
-*  生产环境与开发环境配置
-   *  application-dev.yml
-   *  application-pro.yml
+* 生产环境与开发环境配置
+   * application-dev.yml
+   * application-pro.yml
 
 ### 3.2 异常处理
 
@@ -280,9 +284,12 @@ logging:
 
 在错误页面自定义一些信息，方便后续调试的时候查看。
 
-*  404
-*  500
+*  [404](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
+*  [500](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
 *  error
+*  [HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+
 
 **2、全局处理异常**
 
@@ -444,13 +451,14 @@ public class LogAspect {
 **1、静态页面导入project**
 
 **2、thymeleaf布局**
-    
+
 * [Thymeleaf](https://www.thymeleaf.org/index.html)    
 * [Template Layout](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#template-layout)
 *  定义fragment
 *  使用fragment布局
 
 **3、错误页面美化**
+
 
 
 ## 4、设计与规范
@@ -469,7 +477,7 @@ public class LogAspect {
 
 **实体关系：**
 
-![image-20201118203333230](/home/yq0033/.config/Typora/typora-user-images/image-20201118203333230.png)
+<img src="images/Entity_Relation.png" alt="Entity-Relation " style="zoom:80%;" />
 
 * One **blog** can only belong to one **type**; but one **type** can have lots of **blogs**, i.e. a type has a list of blogs;
 * Blog -- Tag, 多对多
@@ -478,43 +486,43 @@ public class LogAspect {
 
 **评论类自关联关系：**
 
-![image-20201118203624546](/home/yq0033/.config/Typora/typora-user-images/image-20201118203624546.png)
+<img src="/home/ylqi007/work/IdeaProjects/blog/images/Comment_Relation.png" alt="image-20201118203624546" style="zoom:80%;" />
 
 
 
 **Blog类：**
 
-![image-20201118203808452](/home/yq0033/.config/Typora/typora-user-images/image-20201118203808452.png)
+<img src="/home/ylqi007/work/IdeaProjects/blog/images/Blog_Class.png" alt="Blog_Class" style="zoom:80%;" />
 
 
 
 **Type类：**
 
-![image-20201118204027974](/home/yq0033/.config/Typora/typora-user-images/image-20201118204027974.png)
+<img src="/home/ylqi007/work/IdeaProjects/blog/images/Type_Class.png" alt="Type_Class" style="zoom:80%;" />
 
 
 
 **Tag类：**
 
-![image-20201118204104911](/home/yq0033/.config/Typora/typora-user-images/image-20201118204104911.png)
+<img src="/home/ylqi007/work/IdeaProjects/blog/images/Tag_Class.png" alt="Tag_Class" style="zoom:80%;" />
 
 
 
 **Comment类：**
 
-![image-20201118204135825](/home/yq0033/.config/Typora/typora-user-images/image-20201118204135825.png)
+<img src="/home/ylqi007/work/IdeaProjects/blog/images/Comment_Class.png" alt="Comment_Class" style="zoom:80%;" />
 
 
 
 **User类：**
 
-![image-20201118204203435](/home/yq0033/.config/Typora/typora-user-images/image-20201118204203435.png)
+<img src="/home/ylqi007/work/IdeaProjects/blog/images/User_Class.png" alt="User_Class" style="zoom:80%;" />
 
 
 
 ### 4.2 应用分层
 
-![image-20201118204240017](/home/yq0033/.config/Typora/typora-user-images/image-20201118204240017.png)
+![application_layers](/home/ylqi007/work/IdeaProjects/blog/images/application_layers.png)
 
 
 
@@ -531,7 +539,7 @@ public class LogAspect {
 
 
 
-![image-20201118222039201](/home/yq0033/.config/Typora/typora-user-images/image-20201118222039201.png)
+![blog_design](/home/ylqi007/work/IdeaProjects/blog/images/blog_design.png)
 
 
 
@@ -539,9 +547,13 @@ public class LogAspect {
 
 ### 5.1 登录
 
-
-
 **1、构建登录页面和后台管理首页**
+
+- [x] `resources/templates/admin/_fragments.html`
+- [x] `resources/templates/admin/blogs.html`
+- [x] `resources/templates/admin/index.html`
+- [x] `resources/templates/admin/input.html`
+- [x] `resources/templates/admin/login.html`
 
 **2、UserService和UserRepository**
 
@@ -551,9 +563,9 @@ public class LogAspect {
 
 **5、登录拦截器**
 
+
+
 ### 5.2 分类管理
-
-
 
 **1、分类管理页面**
 
@@ -714,13 +726,12 @@ public class Application {
 * 类定义：`SpringApplication.run`
 
 
-### Reference
-* [Springboot启动原理解析（@SpringBootApplication和SpringApplication）](https://blog.csdn.net/qq_36761831/article/details/102928632)
-* [SpringBoot启动过程原理一](https://blog.csdn.net/u010811939/article/details/80592461?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-4.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-4.not_use_machine_learn_pai)
-* [SpringBoot启动原理及相关流程](https://blog.csdn.net/javarrr/article/details/89472495?utm_medium=distribute.pc_relevant.none-task-blog-baidulandingword-3&spm=1001.2101.3001.4242)
-* []()
-* []()
-* []()
+## Thymeleaf
+* The `xmlns` attribute specifies the xml namespace for a document.
+    * The `xmlns` attribute is required in XHTML, invalid in HTML 4.01, and optional in HTML5.
+    * The HTML validator at http://w3.org does not complain when the xmlns attribute is missing in an XHTML document. This is because the namespace "xmlns=http://www.w3.org/1999/xhtml" is default, and will be added to the <html> tag even if you do not include it.
+*
+
 
 ## FAQ
 1. 什么是 classpath ？ [classpath和jar](https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296#:~:text=classpath%20%E6%98%AFJVM%E7%94%A8%E5%88%B0,%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E3%80%82)
@@ -740,3 +751,27 @@ public class Application {
 5. Error Page always shows a dot in static browser mode.    
    
 * `Attribute th:replace is not allowed here.`
+
+## Reference
+* [Springboot启动原理解析（@SpringBootApplication和SpringApplication）](https://blog.csdn.net/qq_36761831/article/details/102928632)
+* [SpringBoot启动过程原理一](https://blog.csdn.net/u010811939/article/details/80592461?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-4.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-4.not_use_machine_learn_pai)
+* [SpringBoot启动原理及相关流程](https://blog.csdn.net/javarrr/article/details/89472495?utm_medium=distribute.pc_relevant.none-task-blog-baidulandingword-3&spm=1001.2101.3001.4242)
+* []()
+* []()
+* []()
+* [Thymeleaf入门（一）——入门与基本概述](https://www.cnblogs.com/jiangbei/p/8462294.html)
+* [史上最详 Thymeleaf 使用教程](https://blog.csdn.net/ljk126wy/article/details/90735989?utm_medium=distribute.pc_feed_404.none-task-blog-BlogCommendFromBaidu-1.nonecase&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-BlogCommendFromBaidu-1.nonecas)
+* []()
+* []()
+* []()
+* []()
+* [HTML <html> xmlns Attribute](https://www.w3schools.com/tags/att_html_xmlns.asp#:~:text=The%20xmlns%20attribute%20specifies%20the,4.01%2C%20and%20optional%20in%20HTML5.&text=This%20is%20because%20the%20namespace,you%20do%20not%20include%20it.)
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
+* []()
