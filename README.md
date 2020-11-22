@@ -486,43 +486,43 @@ public class LogAspect {
 
 **评论类自关联关系：**
 
-<img src="/home/ylqi007/work/IdeaProjects/blog/images/Comment_Relation.png" alt="image-20201118203624546" style="zoom:80%;" />
+<img src="images/Comment_Relation.png" alt="image-20201118203624546" style="zoom:80%;" />
 
 
 
 **Blog类：**
 
-<img src="/home/ylqi007/work/IdeaProjects/blog/images/Blog_Class.png" alt="Blog_Class" style="zoom:80%;" />
+<img src="images/Blog_Class.png" alt="Blog_Class" style="zoom:80%;" />
 
 
 
 **Type类：**
 
-<img src="/home/ylqi007/work/IdeaProjects/blog/images/Type_Class.png" alt="Type_Class" style="zoom:80%;" />
+<img src="images/Type_Class.png" alt="Type_Class" style="zoom:80%;" />
 
 
 
 **Tag类：**
 
-<img src="/home/ylqi007/work/IdeaProjects/blog/images/Tag_Class.png" alt="Tag_Class" style="zoom:80%;" />
+<img src="images/Tag_Class.png" alt="Tag_Class" style="zoom:80%;" />
 
 
 
 **Comment类：**
 
-<img src="/home/ylqi007/work/IdeaProjects/blog/images/Comment_Class.png" alt="Comment_Class" style="zoom:80%;" />
+<img src="images/Comment_Class.png" alt="Comment_Class" style="zoom:80%;" />
 
 
 
 **User类：**
 
-<img src="/home/ylqi007/work/IdeaProjects/blog/images/User_Class.png" alt="User_Class" style="zoom:80%;" />
+<img src="images/User_Class.png" alt="User_Class" style="zoom:80%;" />
 
 
 
 ### 4.2 应用分层
 
-![application_layers](/home/ylqi007/work/IdeaProjects/blog/images/application_layers.png)
+![application_layers](images/application_layers.png)
 
 
 
@@ -539,7 +539,7 @@ public class LogAspect {
 
 
 
-![blog_design](/home/ylqi007/work/IdeaProjects/blog/images/blog_design.png)
+![blog_design](images/blog_design.png)
 
 
 
@@ -567,9 +567,16 @@ public class LogAspect {
 
 ### 5.2 分类管理
 
+- [ ] 新增分类
+- [ ] 修改分类
+- [ ] 删除分类
+- [ ] 查询分类
+
 **1、分类管理页面**
 
 **2、分类列表分页**
+
+`typeService.listType(pageable)` 返回的 Pageable 对象如下，是一个 Json 对象？？？
 
 ````javascript
 {
@@ -749,7 +756,7 @@ public class Application {
 3. [Why does Favicon.ico Show Up as a 404 in the log files?](http://www.webweaver.nu/html-tips/favicon.shtml)
 4. [Why am I seeing a 404 (Not Found) error failed to load favicon.ico when not using this?](https://stackoverflow.com/questions/39149846/why-am-i-seeing-a-404-not-found-error-failed-to-load-favicon-ico-when-not-usin)
 5. Error Page always shows a dot in static browser mode.    
-   
+6. 在新增 type 的时候，在 types 页面却没有显示。经过查看，database 中只有 id 却没有 name。原因：`types-input.html` 页面 ui-form 中的名字不对。
 * `Attribute th:replace is not allowed here.`
 
 ## Reference
