@@ -4,6 +4,7 @@ package com.ylqi007.blog.po;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class Tag {
     @ManyToMany(mappedBy = "tags")
     private List<Blog> blogs = new ArrayList<>();
 
+    @NotBlank(message = "Tag Name cannot be Null.")
     public Tag() {
     }
 
