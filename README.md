@@ -621,7 +621,27 @@ public class LogAspect {
 
 ### 5.4 博客管理
 
+ DAO 层操作数据 --> service --> controller --> html
 
+1. 首先，定义需要的 service，
+
+   ```java
+   public interface BlogService {
+       Blog getBlog(Long id);		// Get a blog according to an ID
+   
+       Page<Blog> listBlog(Pageable pageable, BlogQuery blog);	// According to the search requirement, search
+   
+       Blog saveBlog(Blog blog);	// Save a new Blog
+   
+       Blog updateBlog(Long id, Blog blog);	// Update an already existed blog
+   
+       void deleteBlog(Long id);   // delete a blog according to the primary key
+   }
+   ```
+
+   
+
+2. 
 
 **1、博客分页查询**
 
