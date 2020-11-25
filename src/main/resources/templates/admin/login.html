@@ -20,7 +20,7 @@
         <div class="ui middle aligned center aligned grid">
             <div class="column">
                 <h2 class="ui teal image header">
-                    <!--                <img src="assets/images/logo.png" class="image">-->
+                    <img src="../../static/images/semantic-ui-react.png" th:src="@{/images/semantic-ui-react.png}" class="image">
                     <div class="content">
                         Log-in to your account
                     </div>
@@ -30,7 +30,7 @@
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="username" placeholder="Username...">
+                                <input type="text" name="username" placeholder="Username">
                             </div>
                         </div>
                         <div class="field">
@@ -58,7 +58,7 @@
 </div>
 
 
-<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <!--/*/</th:block>/*/-->
