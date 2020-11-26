@@ -1,8 +1,11 @@
 package com.ylqi007.blog.service;
 
 import com.ylqi007.blog.po.Tag;
+import com.ylqi007.blog.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface TagService {
 
@@ -13,6 +16,10 @@ public interface TagService {
     Tag getTagByName(String name);
 
     Page<Tag> listTag(Pageable pageable);
+
+    List<Tag> listTag();
+
+    List<Tag> listTag(String ids);
 
     Tag updateTag(Long id, Tag tag);
 
