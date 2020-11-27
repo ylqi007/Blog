@@ -3,6 +3,7 @@ package com.ylqi007.blog.po;
 import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -46,6 +47,7 @@ public class Blog {
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments = new ArrayList<>();
 
+    // Annotated with @Transient, then this will not be saved to the database
     @Transient
     private String tagIds;
 

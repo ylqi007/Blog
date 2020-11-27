@@ -39,6 +39,13 @@ public class BlogController {
     @Autowired
     private TagService tagService;
 
+    /**
+     * Show the blogs page, i.e. list all the list in the blogs page.
+     * @param pageable
+     * @param blog
+     * @param model
+     * @return
+     */
     @GetMapping("/blogs")
     public String list(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                        BlogQuery blog, Model model) {
@@ -54,6 +61,11 @@ public class BlogController {
         return "admin/blogs :: blogList";
     }
 
+    /**
+     *
+     * @param model
+     * @return
+     */
     @GetMapping("/blogs/input")
     public String input(Model model) {
         setTypeAndTag(model);
@@ -75,6 +87,13 @@ public class BlogController {
         model.addAttribute("tags", tagService.listTag());
     }
 
+    /**
+     *
+     * @param blog
+     * @param attributes
+     * @param session
+     * @return
+     */
     @PostMapping("/blogs")
     public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
         blog.setUser((User) session.getAttribute("user"));

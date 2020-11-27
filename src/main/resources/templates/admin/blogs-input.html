@@ -16,7 +16,7 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">博客发布</h2>
-            <a href="#" class="m-item item me-mobile-hide active"><i class="home icon"></i>Index</a>
+            <a href="#" class="m-item item me-mobile-hide active"><i class="home icon"></i>Blogs</a>
             <a href="#" class="m-item item me-mobile-hide"><i class="idea icon"></i>Class</a>
             <a href="#" class="m-item item me-mobile-hide"><i class="tags icon"></i>Tag</a>
             <div class="right m-item menu me-mobile-hide">
@@ -51,7 +51,7 @@
 <!--    content-->
 <div class="me-container me-padding-tb-big">
     <div class="ui container">
-        <form id="blog-form" action="#" th:object="${blog}" th:action="@{/admin/blogs}" method="post" class="ui form">
+        <form id="blog-form" class="ui form" method="post" action="#" th:action="@{/admin/blogs}" th:object="${blog}">
             <input type="hidden" name="published" th:value="*{published}">
             <input type="hidden" name="id" th:value="*{id}">
             <div class="required field">
@@ -72,17 +72,17 @@
 
             <div class="required field">
                 <div id="md-content" style="z-index: 1 !important;">
-                    <label>
-                        <textarea placeholder="博客内容" name="content" style="display: none" th:text="*{content}"></textarea>
-                    </label>
+                    <textarea name="content" placeholder="博客内容" style="display: none;" th:text="*{content}"></textarea>
+<!--                    <textarea placeholder="博客内容" name="content" style="display: none;" th:text="*{content}"></textarea>-->
                 </div>
             </div>
 
             <div class="two fields">
+                <!-- field for type-->
                 <div class="required field">
                     <div class="ui left labeled action input">
                         <label class="ui compact teal basic label">分类</label>
-                        <div class="ui fluid selection dropdown">
+                        <div class="ui tag fluid selection dropdown">
                             <input type="hidden" name="type.id" th:value="*{type} != null ? *{type.id}">
                             <i class="dropdown icon"></i>
                             <div class="default text">分类</div>
@@ -96,6 +96,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- field for tags-->
                 <div class="field">
                     <div class="ui left labeled action input">
                         <label class="ui compact teal basic label">标签</label>
@@ -114,7 +115,8 @@
                     </div>
                 </div>
             </div>
-            <!--                pic url-->
+
+            <!-- picture url-->
             <div class="required field">
                 <div class="ui left labeled input">
                     <label class="ui teal basic label">首图</label>
@@ -122,6 +124,7 @@
                 </div>
             </div>
 
+            <!-- discription -->
 <!--            <div class="required field">-->
 <!--                <textarea name="description" th:text="*{description}" placeholder="博客描述..." maxlength="200"></textarea>-->
 <!--            </div>-->
@@ -242,21 +245,21 @@
                 identifier: 'content',
                 rules: [{
                     type: 'empty',
-                    prompt: '标题： 请输入博客内容'
+                    prompt: '内容： 请输入博客内容'
                 }]
             },
             typeId: {
                 identifier: 'type.id',
                 rules: [{
                     type: 'empty',
-                    prompt: '标题： 请输入博客分类'
+                    prompt: '分类： 请输入博客分类'
                 }]
             },
-            firstIndex: {
-                identifier: 'firstIndex',
+            firstPicture: {
+                identifier: 'firstPicture',
                     rules: [{
                     type: 'empty',
-                    prompt: '标题： 请输入首图地址'
+                    prompt: '首图： 请输入首图地址'
                 }]
             }
         }
@@ -272,9 +275,12 @@
         $('#blog-form').submit();
     });
 
-    // $('.ui.tag.dropdown').dropdown({
-    //     allowAdditions: true
-    // });
+    $('.ui.tag.dropdown')
+        .dropdown({
+            allowAdditions: false
+        })
+    ;
+
 </script>
 </body>
 </html>

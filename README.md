@@ -639,9 +639,11 @@ public class LogAspect {
    }
    ```
 
+2. 然后，实现这个接口
+
    
 
-2. 
+3. 
 
 **1、博客分页查询**
 
@@ -782,6 +784,7 @@ public class Application {
 5. Error Page always shows a dot in static browser mode.    
 
 6. 在新增 type 的时候，在 types 页面却没有显示。经过查看，database 中只有 id 却没有 name。原因：`types-input.html` 页面 ui-form 中的名字不对。
+<<<<<<< Updated upstream
 
 7. Missing attribute `alt` required:
 
@@ -790,6 +793,9 @@ public class Application {
     * [HTML <area> alt Attribute](https://www.w3schools.com/tags/att_area_alt.asp#:~:text=The%20alt%20attribute%20specifies%20an,user%20uses%20a%20screen%20reader)
     * [How to fix: Required attribute "alt" not specified](http://help.simplytestable.com/errors/html-validation/required-attribute-x-not-specified/required-attribute-alt-not-specified/)
 
+=======
+7. `Call to 'toArray()' with pre-sized array argument 'new Predicate[predicates.size()]' `
+>>>>>>> Stashed changes
 8. 
 * `Attribute th:replace is not allowed here.`
 
