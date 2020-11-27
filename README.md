@@ -769,14 +769,28 @@ public class Application {
     * `classpath` 的设定方法有两种：
         * 在系统环境中设置 `classpath` 环境变量，不推荐，因为会污染整个系统环境变量。
         * 在启动 JVM 时，设置 `classpath` 变量，推荐。 
+    
 2. 什么是 jar ？ [classpath和jar](https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296#:~:text=classpath%20%E6%98%AFJVM%E7%94%A8%E5%88%B0,%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E3%80%82)
     * 如果有很多.class文件，散落在各层目录中，肯定不便于管理。如果能把目录打一个包，变成一个文件，就方便多了。
     * jar包就是用来干这个事的，它可以把package组织的目录层级，以及各个目录下的所有文件（包括.class文件和其他文件）都打成一个jar文件，这样一来，无论是备份，还是发给客户，就简单多了。
     * jar包实际上就是一个zip格式的压缩文件，而jar包相当于目录。
+    
 3. [Why does Favicon.ico Show Up as a 404 in the log files?](http://www.webweaver.nu/html-tips/favicon.shtml)
+
 4. [Why am I seeing a 404 (Not Found) error failed to load favicon.ico when not using this?](https://stackoverflow.com/questions/39149846/why-am-i-seeing-a-404-not-found-error-failed-to-load-favicon-ico-when-not-usin)
+
 5. Error Page always shows a dot in static browser mode.    
+
 6. 在新增 type 的时候，在 types 页面却没有显示。经过查看，database 中只有 id 却没有 name。原因：`types-input.html` 页面 ui-form 中的名字不对。
+
+7. Missing attribute `alt` required:
+
+    * The `alt` attribute specifies an alternative text for an area, if the image cannot be displayed.
+
+    * [HTML <area> alt Attribute](https://www.w3schools.com/tags/att_area_alt.asp#:~:text=The%20alt%20attribute%20specifies%20an,user%20uses%20a%20screen%20reader)
+    * [How to fix: Required attribute "alt" not specified](http://help.simplytestable.com/errors/html-validation/required-attribute-x-not-specified/required-attribute-alt-not-specified/)
+
+8. 
 * `Attribute th:replace is not allowed here.`
 
 ## Reference
